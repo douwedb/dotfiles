@@ -7,6 +7,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'msanders/snipmate.vim'
 
 " Use :help 'option' to see the documentation for the given option.
 
@@ -49,6 +50,10 @@ set tabpagemax=50
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
 set hidden
+
+set number
+set cursorline
+set colorcolumn=80
 
 set textwidth=80
 set tabstop=8
