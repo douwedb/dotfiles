@@ -12,7 +12,7 @@ export EDITOR="vim"
 # export VISUAL="gvim"
 
 # Less.
-export LESS="--LONG-PROMPT --ignore-case --QUIET"
+export LESS="-R --LONG-PROMPT --ignore-case --QUIET"
 
 # Vi/VIM style Bash keybindings. Enable this if you like those.
 set -o vi
