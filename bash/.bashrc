@@ -133,3 +133,4 @@ if [ -f ~/.bash_functions ]; then
 fi
 
 export HISTCONTROL=ignoreboth
+PATH="${PATH}:/home/douwe/bin"
