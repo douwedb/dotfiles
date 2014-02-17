@@ -72,6 +72,8 @@ inoremap <C-U> <C-G>u<C-U>
 colorscheme solarized
 set background=dark
 
+au BufRead,BufNewFile *.md set filetype=markdown
+
 function! ResCur()
   if line("'\"") <= line("$")
     normal! g`"
