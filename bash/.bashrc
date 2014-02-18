@@ -108,7 +108,12 @@ esac
 # Prompt, looks like:
 # ┌─[username@host]-[time date]-[directory]
 # └─[$]-> 
-export PS1="\[$Cyan\]┌─[\[$Green\]\u\[$Blue\]@\[$Red\]\h\[$Cyan\]]-[\[$Colour_Off\]\t $(date +'%a %d %b')\[$Cyan\]]-[\[$BYellow\]\w\[$Cyan\]]\n\[$Cyan\]└─[\[$Purple\]\$\[$Cyan\]]->\[$Colour_Off\] "
+if [ -n "$SSH_CLIENT" ]; then
+	export PS1="\[$Cyan\]┌─[\[$Green\]\u\[$Blue\]@\[$Red\]\h\[$Cyan\]]-[\[$IRed\]\t $(date +'%a %d %m')\[$Cyan\]]-[\[$BYellow\]\w\[$Cyan\]]\n\[$Cyan\]└─[\[$IRed\]SSH\[$Cyan\]]-[\[$Purple\]\$\[$Cyan\]]->\[$Colour_Off\] "
+else
+	export PS1="\[$Cyan\]┌─[\[$Green\]\u\[$Blue\]@\[$Red\]\h\[$Cyan\]]-[\[$Colour_Off\]\t $(date +'%a %d %b')\[$Cyan\]]-[\[$BYellow\]\w\[$Cyan\]]\n\[$Cyan\]└─[\[$Purple\]\$\[$Cyan\]]->\[$Colour_Off\] "
+fi
+
 export PS2="\[$Cyan\]Secondary->\[$Colour_Off\] "
 export PS3="\[$Cyan\]Select option->\[$Colour_Off\] "
 export PS4="\[$Cyan\]+xtrace $LINENO->\[$Colour_Off\] "
