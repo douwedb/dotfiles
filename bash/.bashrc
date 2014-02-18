@@ -2,8 +2,6 @@
 # ~/.bashrc
 #
 
-alias ls='ls --color=auto'
-
 # If not running interactively, don't do anything.
 [ -z "$PS1" ] && return
 
@@ -127,15 +125,7 @@ export LESS_TERMCAP_so=$'\e[38;5;246m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[04;38;5;146m'
 
-# Load aliases. 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# Load functions.
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
-fi
+alias ls='ls --color=auto'
 
 export HISTCONTROL=ignoreboth
 PATH="${PATH}:/home/douwe/bin"
