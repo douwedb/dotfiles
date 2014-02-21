@@ -128,4 +128,4 @@ export LESS_TERMCAP_us=$'\e[04;38;5;146m'
 alias ls='ls --color=auto'
 
 export HISTCONTROL=ignoreboth
-PATH="${PATH}:/home/douwe/bin"
+PATH="${PATH}:$HOME/bin"
