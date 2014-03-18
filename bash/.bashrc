@@ -102,6 +102,10 @@ case "$TERM" in
 *)
     ;;
 esac
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+HISTFILESIZE=2000
+HISTSIZE=1000
 
 # Prompt, looks like:
 # ┌─[username@host]-[time date]-[directory]
