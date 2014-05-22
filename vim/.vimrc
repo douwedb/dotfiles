@@ -2,12 +2,14 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'msanders/snipmate.vim'
+
+call vundle#end()
 
 " Use :help 'option' to see the documentation for the given option.
 
