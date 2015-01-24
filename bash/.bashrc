@@ -133,3 +133,6 @@ alias ls='ls --color=auto'
 
 export HISTCONTROL=ignoreboth
 PATH="${PATH}:$HOME/bin"
+
+GPG_TTY=$(tty)
+export GPG_TTY
