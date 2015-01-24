@@ -1,7 +1,5 @@
 ! Xresources file
 
-! URxvt*transparent: true
-! URxvt*shading: 20
 URxvt*saveLines: 32000
 URxvt*scrollBar: false
 URxvt*secondaryScroll: true
@@ -18,40 +16,7 @@ URxvt*url-launcher: /usr/bin/firefox
 URxvt*matcher.button: 1
 
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=14
-! URxvt*boldFont: xft:Inconsolata:pixelsize=15:Bold:antialias=true:autohint=true:hinting=true
 URxvt*boldFont: xft:DejaVu Sans Mono:pixelsize=14:Bold
-
-!URxvt*foreground: #EBEBFF
-!URxvt*background: #000000
-
-
-!! others -------------------------------------------
-!*background: #171717
-!*foreground: #ffffff
-!! black --------------------------------------------
-!*color0:  #292929
-!*color8:  #3d3d3d
-!! red ----------------------------------------------
-!*color1:  #de6951
-!*color9:  #c56a47
-!! green --------------------------------------------
-!*color2:  #bcda55
-!*color10: #9dbf60
-!! yellow -------------------------------------------
-!*color3:  #e2a564
-!*color11: #ec8a25
-!! blue ---------------------------------------------
-!*color4:  #2187f6
-!*color12: #5495dc
-!! magenta ------------------------------------------
-!*color5:  #875c8d
-!*color13: #e41f66
-!! cyan ---------------------------------------------
-!*color6:  #4390b1
-!*color14: #276cc2
-!! white --------------------------------------------
-!*color7:  #d2d2d2
-!*color15: #ffffff
 
 xft.dpi:	96
 xft.antialias:	true
