@@ -1,0 +1,80 @@
+[general]
+
+accounts = gmail, ugent
+ui = TTYUI
+fsync = false
+pythonfile =  ~/.offlineimap.py
+
+##################################################
+# Accounts
+##################################################
+
+[Account gmail]
+
+localrepository = gmail-local
+remoterepository = gmail-remote
+status_backend = sqlite
+
+[Repository gmail-local]
+
+type = Maildir
+localfolders = ~/.mail/douwedebock
+
+nametrans = lambda folder: {'drafts': '[Google Mail]/Drafts',
+			    'sent': '[Google Mail]/Sent Mail',
+			    'trash': '[Google Mail]/Bin',
+			    'archive': '[Google Mail]/All Mail',
+			    }.get(folder, folder)
+
+[Repository gmail-remote]
+
+type = Gmail
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remoteuser = douwedebock
+remotepasseval = subprocess.check_output(["pass", "show", "mail/gmail/douwedebock"]).strip()
+maxconnections = 1
+
+nametrans = lambda folder : {'[Google Mail]/Drafts': 'drafts',
+			     '[Google Mail]/Sent Mail': 'sent',
+			     '[Google Mail]/Bin': 'trash',
+			     '[Google Mail]/All Mail': 'archive',
+			    }.get(folder, folder)
+
+folderfilter = lambda folder : folder not in ['[Google Mail]/Spam',
+					      '[Google Mail]/Important',
+					      '[Google Mail]/Starred',
+					      'facebook',
+					      'GA',
+					      'groepsleiding',
+					      'groepsleiding/district',
+					      'groepsleiding/intern',
+					      'virtualWall',
+					      ]
+
+[Account ugent]
+
+localrepository = ugent-local
+remoterepository = ugent-remote
+status_backend = sqlite
+
+[Repository ugent-local]
+
+type = Maildir
+localfolders = ~/.mail/ugent
+
+[Repository ugent-remote]
+
+type = IMAP
+
+remotehost = mail.ugent.be
+
+ssl = yes
+
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+remoteport = 993
+
+remoteuser = dodbock
+remotepasseval = subprocess.check_output(["pass", "show", "mail/ugent/douwe.debock"]).strip()
+maxconnections = 1
