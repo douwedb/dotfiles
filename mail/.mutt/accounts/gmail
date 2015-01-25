@@ -1,0 +1,13 @@
+
+
+set mbox      = "+douwedebock/archive"
+set postponed = "+douwedebock/drafts"
+
+set from     = "douwedebock@gmail.com"
+set sendmail = "/usr/bin/msmtp -a gmail"
+unset record
+
+macro index,pager d "<save-message>=douwedebock/trash<enter>"
+macro index,pager A "<save-message>=douwedebock/archive<enter>"
+macro index,pager td "<save-message>=douwedebock/respond<enter>"
+macro index,pager grl "<save-message>=douwedebock/grl<enter>"

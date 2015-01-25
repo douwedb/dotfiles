@@ -1,0 +1,10 @@
+set mbox      = "+ugent/INBOX"
+set postponed = "+ugent/Drafts"
+
+set from     = "douwe.debock@ugent.com"
+set sendmail = "/usr/bin/msmtp -a ugent"
+set record = "=ugent/sent-mail"
+
+macro index d <delete-message>
+macro index,pager A "<save-message>=ugent/archive<enter>"
+macro index,pager td "<save-message>=ugent/respond<enter>"

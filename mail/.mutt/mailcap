@@ -1,0 +1,8 @@
+text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
+application/pdf; apvlv %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.document;libreoffice %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.template;libreoffice %s
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;libreoffice %s
+application/vnd.openxmlformats-officedocument.spreadsheetml.template;libreoffice %s
+application/vnd.openxmlformats-officedocument.presentationml.presentation;libreoffice %s
+image/*; firefox %s
