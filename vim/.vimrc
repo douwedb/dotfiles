@@ -5,9 +5,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'msanders/snipmate.vim'
+Plugin 'gmarik/vundle'
+Plugin 'msanders/snipmate.vim'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 
@@ -71,7 +71,8 @@ endif
 
 inoremap <C-U> <C-G>u<C-U>
 
-colorscheme solarized
+let base16colorspace=256
+colorscheme base16-default
 set background=dark
 
 au BufRead,BufNewFile *.md set filetype=markdown
