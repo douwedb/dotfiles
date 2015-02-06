@@ -76,6 +76,8 @@ colorscheme base16-default
 set background=dark
 
 au BufRead,BufNewFile *.md set filetype=markdown
+autocmd Filetype mail set textwidth=72
+autocmd Filetype gitcommit set textwidth=72
 
 function! ResCur()
   if line("'\"") <= line("$")
@@ -89,5 +91,7 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+let g:tex_flavor = "latex"
 
 " vim:set ft=vim et sw=2:
