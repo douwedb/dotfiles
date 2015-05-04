@@ -130,6 +130,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[04;38;5;146m'
 
 alias ls='ls --color=auto'
+alias ll='ls --color=auto -alF'
 
 export HISTCONTROL=ignoreboth
 PATH="${PATH}:$HOME/bin"
