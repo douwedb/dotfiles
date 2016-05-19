@@ -104,8 +104,8 @@ case "$TERM" in
 esac
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-HISTFILESIZE=2000
-HISTSIZE=1000
+HISTFILESIZE=20000
+HISTSIZE=10000
 
 # Prompt, looks like:
 # ┌─[username@host]-[time date]-[directory]
@@ -129,7 +129,9 @@ export LESS_TERMCAP_so=$'\e[38;5;246m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[04;38;5;146m'
 
-alias ls='ls --color=auto'
+alias ls='ls -N --color=auto'
+alias ll='ls -N -l'
+alias vimr='vim --servername GVIM GVIM --remote'
 
 export HISTCONTROL=ignoreboth
 PATH="${PATH}:$HOME/bin"
@@ -137,5 +139,9 @@ PATH="${PATH}:$HOME/bin"
 GPG_TTY=$(tty)
 export GPG_TTY
 
+export PASSWORD_STORE_X_SELECTION=primary
+
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+source /usr/share/git/completion/git-completion.bash

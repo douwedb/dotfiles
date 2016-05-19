@@ -1,0 +1,7 @@
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
+urxvtd -q -f -o
+
+xscreensaver -nosplash &
+xbindkeys
+xss-lock -- xscreensaver-command -lock &
