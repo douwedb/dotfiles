@@ -393,6 +393,12 @@ nnoremap A cw<c-w>
 " Open console in current directory
 nnoremap T :!urxvtc -cd %d &<cr>
 
+noremap ,m :move<cr>
+noremap ,c :copy<cr>
+nnoremap ,x :!tar -xvf %c<cr>
+nnoremap ,d :mkdir<space>
+nnoremap ,t :touch<space>
+
 " Open vim to edit vifmrc and apply settings after returning to vifm
 " nnoremap ,c :write | execute ':!vim $MYVIFMRC' | restart<cr>
 " Open gvim to edit vifmrc
