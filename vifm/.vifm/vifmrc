@@ -398,6 +398,8 @@ noremap ,c :copy<cr>
 nnoremap ,x :!tar -xvf %c<cr>
 nnoremap ,d :mkdir<space>
 nnoremap ,t :touch<space>
+nnoremap ,s :sync<cr>
+nnoremap ,p :cd %D<cr>
 
 " Open vim to edit vifmrc and apply settings after returning to vifm
 " nnoremap ,c :write | execute ':!vim $MYVIFMRC' | restart<cr>
