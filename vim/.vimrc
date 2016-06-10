@@ -13,6 +13,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-surround'
 
 Plugin 'godlygeek/tabular'
 
@@ -25,7 +26,7 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'majutsushi/tagbar'
 if has('gui_running')
   Plugin 'bling/vim-airline'
-  Plugin 'kien/ctrlp.vim'
+  Plugin 'ctrlpvim/ctrlp.vim'
   Plugin 'scrooloose/syntastic'
 endif
 
@@ -147,11 +148,11 @@ if has('gui_running')
   let g:syntastic_check_on_open = 1
   let g:syntastic_check_on_wq = 1
   let g:syntastic_python_python_exec = '/path/to/python3'
-  let g:syntastic_javascript_checkers=['jsl']
+  "let g:syntastic_javascript_checkers=['jsl']
   let g:syntastic_javascript_jsl_args= "-conf /home/sahaltran02/bin/jsl.conf"
   let g:syntastic_mode_map = {
     \ "mode": "passive",
-    \ "active_filetypes": ["javascript"],
+    \ "active_filetypes": [],
     \ "passive_filetypes": [] }
 endif
 
@@ -177,6 +178,7 @@ let g:tagbar_type_javascript = {
 nnoremap <Leader>o :CtrlPBuffer<CR>
 nnoremap <Leader>r "_diwP
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>b :w<CR> :silent make\|redraw!<CR>
 nnoremap <Leader>f :lnext<CR>
 nnoremap <Leader>F :ll<CR>
 
