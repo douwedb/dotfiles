@@ -14,6 +14,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'easymotion/vim-easymotion'
 
+Plugin 'godlygeek/tabular'
+
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ternjs/tern_for_vim'
 
