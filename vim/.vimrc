@@ -14,6 +14,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-surround'
+Plugin 'rodjek/vim-puppet'
 
 Plugin 'godlygeek/tabular'
 
@@ -104,7 +105,7 @@ endif
 inoremap <C-U> <C-G>u<C-U>
 
 let base16colorspace=256
-colorscheme base16-default
+colorscheme base16-default-dark
 set background=dark
 
 au BufRead,BufNewFile *.md setlocal filetype=markdown
@@ -186,8 +187,8 @@ nmap <leader>s <Plug>(easymotion-s)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 
-nnoremap <leader>p :set tabstop=4 shiftwidth=4 expandtab<cr>
-nnoremap <leader>l :set tabstop=8 shiftwidth=8 noexpandtab<cr>
+nnoremap <leader>p :setl tabstop=4 shiftwidth=4 expandtab<cr>
+nnoremap <leader>l :setl tabstop=8 shiftwidth=8 noexpandtab<cr>
 
 set tags=./tags;
 
