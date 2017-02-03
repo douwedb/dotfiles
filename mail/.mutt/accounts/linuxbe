@@ -1,0 +1,17 @@
+
+
+set mbox      = "+linuxbe/archive"
+set postponed = "+linuxbe/drafts"
+
+set from     = "douwe@linuxbe.com"
+set sendmail = "/usr/bin/msmtp -a linuxbe"
+unset record
+
+macro index,pager d "<save-message>=linuxbe/trash<enter>"
+macro index,pager A "<save-message>=linuxbe/archive<enter>"
+macro index,pager td "<save-message>=linuxbe/respond<enter>"
+
+macro index,pager tm "<change-folder> =douwedebock/INBOX<enter>"
+
+macro index,pager ga "<change-folder> =linuxbe/archive<enter>"
+macro index,pager gi "<change-folder> =linuxbe/INBOX<enter>"

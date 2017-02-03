@@ -1,6 +1,6 @@
 [general]
 
-accounts = gmail, ugent
+accounts = gmail, linuxbe
 ui = TTYUI
 fsync = false
 pythonfile =  ~/.offlineimap.py
@@ -52,29 +52,39 @@ folderfilter = lambda folder : folder not in ['[Google Mail]/Spam',
 					      'virtualWall',
 					      ]
 
-[Account ugent]
+[Account linuxbe]
 
-localrepository = ugent-local
-remoterepository = ugent-remote
+localrepository = linuxbe-local
+remoterepository = linuxbe-remote
 status_backend = sqlite
 
-[Repository ugent-local]
+[Repository linuxbe-local]
 
 type = Maildir
-localfolders = ~/.mail/ugent
+localfolders = ~/.mail/linuxbe
 
-[Repository ugent-remote]
+nametrans = lambda folder: {'drafts': '[Gmail]/Drafts',
+			    'sent': '[Gmail]/Sent Mail',
+			    'trash': '[Gmail]/Trash',
+			    'archive': '[Gmail]/All Mail',
+			    }.get(folder, folder)
 
-type = IMAP
+[Repository linuxbe-remote]
 
-remotehost = mail.ugent.be
-
+type = Gmail
 ssl = yes
-
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-
-remoteport = 993
-
-remoteuser = dodbock
-remotepasseval = subprocess.check_output(["pass", "show", "mail/ugent/douwe.debock"]).strip()
+remoteuser = douwe@linuxbe.com
+remotepasseval = subprocess.check_output(["pass", "show", "linuxbe/mail"]).strip()
 maxconnections = 1
+
+nametrans = lambda folder : {'[Gmail]/Drafts': 'drafts',
+			     '[Gmail]/Sent Mail': 'sent',
+			     '[Gmail]/Trash': 'trash',
+			     '[Gmail]/All Mail': 'archive',
+			    }.get(folder, folder)
+
+folderfilter = lambda folder : folder not in ['[Gmail]/Spam',
+					      '[Gmail]/Important',
+					      '[Gmail]/Starred',
+					      ]
