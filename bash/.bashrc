@@ -132,6 +132,7 @@ export LESS_TERMCAP_us=$'\e[04;38;5;146m'
 alias ls='ls -N --color=auto'
 alias ll='ls -N -l'
 alias vimr='vim --servername GVIM GVIM --remote'
+alias vi='vim'
 
 export HISTCONTROL=ignoreboth
 PATH="${PATH}:$HOME/bin"
@@ -141,7 +142,24 @@ export GPG_TTY
 
 export PASSWORD_STORE_X_SELECTION=primary
 
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+[[ -f ~/.bash_aliasses ]] && source ~/.bash_aliasses
 
 source /usr/share/git/completion/git-completion.bash
+complete -cf sudo
+
+mkcdir ()
+{
+    mkdir -p -- "$1" && cd -P -- "$1"
+}
+function up() {
+    case $1 in
+	*[!0-9]*)                                          # if no a number
+	    cd $( pwd | sed -r "s|(.*/$1[^/]*/).*|\1|" )     # search dir_name in current path, if found - cd to it
+	    ;;                                               # if not found - not cd
+	*)
+	    cd $(printf "%0.0s../" $(seq 1 $1));             # cd ../../../../  (N dirs)
+	    ;;
+    esac
+}
