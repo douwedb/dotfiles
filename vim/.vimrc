@@ -14,21 +14,30 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-surround'
-Plugin 'rodjek/vim-puppet'
+"Plugin 'rodjek/vim-puppet'
+
+Plugin 'vimwiki/vimwiki'
 
 Plugin 'godlygeek/tabular'
 
-Plugin 'davidhalter/jedi-vim'
-Plugin 'ternjs/tern_for_vim'
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'ternjs/tern_for_vim'
 
-Plugin 'mrtazz/DoxygenToolkit.vim'
+"Plugin 'mrtazz/DoxygenToolkit.vim'
+"Plugin 'heavenshell/vim-pydocstring'
+"Plugin 'tell-k/vim-autopep8'
+Plugin 'w0rp/ale'
 
 Plugin 'tpope/vim-sleuth'
 Plugin 'majutsushi/tagbar'
 if has('gui_running')
   Plugin 'bling/vim-airline'
   Plugin 'ctrlpvim/ctrlp.vim'
-  Plugin 'scrooloose/syntastic'
+  " Plugin 'Shougo/deoplete.nvim'
+  " Plugin 'roxma/nvim-yarp'
+  " Plugin 'roxma/vim-hug-neovim-rpc'
+  " Plugin 'zchee/deoplete-jedi'
+"  Plugin 'scrooloose/syntastic'
 endif
 
 call vundle#end()
@@ -89,7 +98,7 @@ set hidden
 
 set number
 set cursorline
-set colorcolumn=80
+set colorcolumn=100
 
 set tabstop=4
 set shiftwidth=4
@@ -136,7 +145,6 @@ let g:ctrlp_cmd = 'CtrlPBuffer'
 
 if has('gui_running')
   set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
   set guioptions-=r
   set guioptions-=L
@@ -144,17 +152,6 @@ if has('gui_running')
   set guioptions-=T
   set guioptions-=e
 
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 0
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 1
-  let g:syntastic_python_python_exec = '/path/to/python3'
-  "let g:syntastic_javascript_checkers=['jsl']
-  let g:syntastic_javascript_jsl_args= "-conf /home/sahaltran02/bin/jsl.conf"
-  let g:syntastic_mode_map = {
-    \ "mode": "passive",
-    \ "active_filetypes": [],
-    \ "passive_filetypes": [] }
 endif
 
 map <Tab> <C-W>W
@@ -162,15 +159,16 @@ nmap <BS> <C-^>
 nmap <Del> :TagbarClose<cr> :bd<cr>
 
 runtime! ftplugin/man.vim
-nnoremap K :Man <cword><cr>
+"nnoremap K :Man <cword><cr>
 nmap <F8> :TagbarToggle<CR>
 
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = "2"
-let g:jedi#popup_select_first = 0
+
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#show_call_signatures = "2"
+"let g:jedi#popup_select_first = 0
 "let g:EasyMotion_do_mapping = 0
 let g:tagbar_type_javascript = {
     \ 'ctagsbin' : '/home/douwe/node_modules/.bin/jsctags'
@@ -179,17 +177,24 @@ let g:tagbar_type_javascript = {
 nnoremap <Leader>o :CtrlPBuffer<CR>
 nnoremap <Leader>r "_diwP
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>b :w<CR> :silent make\|redraw!<CR>
-nnoremap <Leader>f :lnext<CR>
-nnoremap <Leader>F :ll<CR>
+"nnoremap <Leader>b :w<CR> :silent make\|redraw!<CR>
+"nnoremap <Leader>f :lnext<CR>
+"nnoremap <Leader>F :ll<CR>
+nnoremap <Leader>= :%!python -m json.tool<CR>
 
 nmap <leader>s <Plug>(easymotion-s)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 
+nnoremap <leader>t :setl tabstop=2 shiftwidth=2 expandtab<cr>
 nnoremap <leader>p :setl tabstop=4 shiftwidth=4 expandtab<cr>
 nnoremap <leader>l :setl tabstop=8 shiftwidth=8 noexpandtab<cr>
 
+"vimwiki
+nmap <Leader>wn <Plug>VimwikiNextLink
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown'}]
+
 set tags=./tags;
+let g:ale_sign_column_always = 1
 
 " vim:set ft=vim et sw=2:
