@@ -23,6 +23,7 @@ set vicmd=vim
 " This probably shouldn't be an option.
 
 set trash
+set confirm=permdelete
 
 " This is how many directories to store in the directory history.
 
@@ -114,7 +115,9 @@ set cpoptions=fs
 
 mark h ~/
 mark d ~/down/
-mark s ~/sjim/
+mark w ~/w/
+mark m ~/media/
+mark r ~/w/renson/projects/
 
 " ------------------------------------------------------------------------------
 
