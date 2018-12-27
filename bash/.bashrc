@@ -133,6 +133,7 @@ alias ls='ls -N --color=auto'
 alias ll='ls -N -l'
 alias vimr='vim --servername GVIM GVIM --remote'
 alias vi='vim'
+alias cpass='PASSWORD_STORE_X_SELECTION=primary pass -c'
 
 export HISTCONTROL=ignoreboth
 PATH="${PATH}:$HOME/bin"
@@ -140,7 +141,7 @@ PATH="${PATH}:$HOME/bin"
 GPG_TTY=$(tty)
 export GPG_TTY
 
-export PASSWORD_STORE_X_SELECTION=primary
+export PASSWORD_STORE_X_SELECTION=clipboard
 
 BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
