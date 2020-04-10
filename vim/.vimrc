@@ -31,16 +31,14 @@ Plugin 'w0rp/ale'
 Plugin 'tpope/vim-sleuth'
 Plugin 'majutsushi/tagbar'
 Plugin 'skywind3000/asyncrun.vim'
-if has('gui_running')
-  Plugin 'bling/vim-airline'
-  Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'ctrlpvim/ctrlp.vim'
   " Plugin 'gabrielelana/vim-markdown'
   " Plugin 'Shougo/deoplete.nvim'
   " Plugin 'roxma/nvim-yarp'
   " Plugin 'roxma/vim-hug-neovim-rpc'
   " Plugin 'zchee/deoplete-jedi'
 "  Plugin 'scrooloose/syntastic'
-endif
 
 call vundle#end()
 
