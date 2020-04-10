@@ -30,9 +30,11 @@ Plugin 'w0rp/ale'
 
 Plugin 'tpope/vim-sleuth'
 Plugin 'majutsushi/tagbar'
+Plugin 'skywind3000/asyncrun.vim'
 if has('gui_running')
   Plugin 'bling/vim-airline'
   Plugin 'ctrlpvim/ctrlp.vim'
+  " Plugin 'gabrielelana/vim-markdown'
   " Plugin 'Shougo/deoplete.nvim'
   " Plugin 'roxma/nvim-yarp'
   " Plugin 'roxma/vim-hug-neovim-rpc'
@@ -118,11 +120,12 @@ colorscheme base16-default-dark
 set background=dark
 
 au BufRead,BufNewFile *.md setlocal filetype=markdown
-autocmd Filetype mail setlocal textwidth=80 spell
-autocmd Filetype text setlocal textwidth=80 spell
+autocmd Filetype mail setlocal textwidth=80
+autocmd Filetype text setlocal textwidth=80
 autocmd Filetype help setlocal nospell
-autocmd Filetype gitcommit setlocal textwidth=72 spell
-autocmd Filetype markdown setlocal textwidth=80 spell
+autocmd Filetype gitcommit setlocal textwidth=72
+autocmd Filetype markdown setlocal textwidth=80
+au BufNewFile ~/vimwiki/diary/*.md :silent 0r !~/.vim/bin/diary-template.py '%'
 
 function! ResCur()
   if line("'\"") <= line("$")
@@ -154,9 +157,10 @@ if has('gui_running')
 
 endif
 
-map <Tab> <C-W>W
-nmap <BS> <C-^>
+nmap <C-y> <C-W>W
 nmap <Del> :TagbarClose<cr> :bd<cr>
+nmap <Leader>t <C-^>
+nmap <BS> <C-^>
 
 runtime! ftplugin/man.vim
 "nnoremap K :Man <cword><cr>
@@ -176,7 +180,7 @@ let g:tagbar_type_javascript = {
 
 nnoremap <Leader>o :CtrlPBuffer<CR>
 nnoremap <Leader>r "_diwP
-nnoremap <Leader>w :w<CR>
+"nnoremap <Leader>w :w<CR>
 "nnoremap <Leader>b :w<CR> :silent make\|redraw!<CR>
 "nnoremap <Leader>f :lnext<CR>
 "nnoremap <Leader>F :ll<CR>
@@ -186,13 +190,17 @@ nmap <leader>s <Plug>(easymotion-s)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 
-nnoremap <leader>t :setl tabstop=2 shiftwidth=2 expandtab<cr>
-nnoremap <leader>p :setl tabstop=4 shiftwidth=4 expandtab<cr>
-nnoremap <leader>l :setl tabstop=8 shiftwidth=8 noexpandtab<cr>
+nnoremap <leader>cst :setl tabstop=2 shiftwidth=2 expandtab<cr>
+nnoremap <leader>csp :setl tabstop=4 shiftwidth=4 expandtab<cr>
+nnoremap <leader>csl :setl tabstop=8 shiftwidth=8 noexpandtab<cr>
 
 "vimwiki
-nmap <Leader>wn <Plug>VimwikiNextLink
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown'}]
+nmap <C-j> <Plug>VimwikiNextLink
+nmap <C-k> <Plug>VimwikiPrevLink
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+imap <F5> <C-R>=strftime("%Y%m%d%H%M")<CR>
+imap <F6> <C-R>=strftime("%A %d %B %Y")<CR>
 
 set tags=./tags;
 let g:ale_sign_column_always = 1
